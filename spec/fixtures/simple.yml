@@ -1,0 +1,7 @@
+development:
+  redis:
+    host: localhost
+
+production:
+  redis:
+    host: yawsah
