@@ -1,4 +1,5 @@
 # ConfigLoader
+[![Build Status](http://ci.salemove.com/buildStatus/icon?job=application_services)](http://ci.salemove.com/job/application_services/)
 
 ## Installation
 
