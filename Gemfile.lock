@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     config_loader (0.0.1)
+      symbolizer (~> 0.0.1)
 
 GEM
   remote: https://rubygems.org/
@@ -31,6 +32,7 @@ GEM
     ruby_parser (3.2.2)
       sexp_processor (~> 4.1)
     sexp_processor (4.4.1)
+    symbolizer (0.0.1)
 
 PLATFORMS
   ruby
