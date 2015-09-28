@@ -1,5 +1,6 @@
 require 'yaml'
 require 'symbolizer'
+require 'erb'
 
 # Helps to load config files in salemove ecosystem
 #
