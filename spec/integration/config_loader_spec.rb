@@ -10,7 +10,7 @@ describe ConfigLoader do
     end
 
     it 'exposes production value' do
-      expect(@config[:redis]).to eq(host: 'yawsah')
+      expect(@config[:some_service]).to eq(host: 'some_service.production.com')
     end
   end
 
@@ -21,7 +21,7 @@ describe ConfigLoader do
     end
 
     it 'exposes development value' do
-      expect(@config[:redis]).to eq(host: 'localhost')
+      expect(@config[:some_service]).to eq(host: 'localhost')
     end
   end
 

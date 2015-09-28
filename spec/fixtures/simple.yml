@@ -1,10 +1,10 @@
 development:
-  redis:
+  some_service:
     host: localhost
 
 production:
-  redis:
-    host: yawsah
+  some_service:
+    host: some_service.production.com
 
 flexible:
   foo: <%= ENV['FOO'] %>
