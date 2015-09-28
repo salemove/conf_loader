@@ -1,0 +1,6 @@
+language: ruby 
+rvm:
+  - 2.1.0 
+before_script:
+  - bundle
+script: bundle exec rspec

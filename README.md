@@ -1,6 +1,6 @@
 # ConfigLoader
 
-[![Build Status](http://ci.salemove.com/buildStatus/icon?job=application_services)](http://ci.salemove.com/job/application_services/)
+[![Build Status](https://travis-ci.org/salemove/config_loader.svg?branch=master)](https://travis-ci.org/salemove/config_loader)
 [![Code Climate](https://codeclimate.com/github/salemove/config_loader.png)](https://codeclimate.com/github/salemove/config_loader)
 
 ## Installation
