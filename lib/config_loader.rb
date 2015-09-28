@@ -16,7 +16,9 @@ class ConfigLoader
   #
   # @api public
   def self.load(path, env)
-    hash = YAML.load_file(path)[env]
+    template = ERB.new File.new(path).read
+    environments = YAML.load template.result(binding)
+    hash = environments[env]
     Symbolizer.symbolize(hash)
   end
 end
