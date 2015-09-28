@@ -5,3 +5,6 @@ development:
 production:
   redis:
     host: yawsah
+
+flexible:
+  foo: <%= ENV['FOO'] %>

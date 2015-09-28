@@ -25,4 +25,20 @@ describe ConfigLoader do
     end
   end
 
+  context 'with ENV variables declared' do
+
+    before do
+      ENV['FOO'] = 'foo-value'
+      @config = described_class.load(path, 'flexible')
+    end
+
+    it 'exposes ENV defined value' do
+      expect(@config[:foo]).to eq('foo-value')
+    end
+
+    it 'exposes undefined ENV values as nil' do
+      expect(@config[:undefine_val]).to be_nil
+    end
+  end
+
 end
