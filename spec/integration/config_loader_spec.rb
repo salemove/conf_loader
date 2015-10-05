@@ -34,7 +34,15 @@ describe ConfigLoader do
     end
 
     it 'exposes undefined ENV values as nil' do
-      expect(config[:undefine_val]).to be_nil
+      expect(config[:undefined_val]).to be_nil
+    end
+
+    it 'exposes default value when ENV value not supplied' do
+      expect(config[:var_with_default_not_in_env]).to eq('default_value')
+    end
+
+    it 'skips default value when ENV value supplied' do
+      expect(config[:var_with_default_in_env]).to eq('foo-value')
     end
   end
 
