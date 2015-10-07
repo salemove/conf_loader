@@ -1,1 +1,1 @@
-require 'config_loader'
+require 'conf_loader'

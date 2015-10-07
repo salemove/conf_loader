@@ -1,15 +1,15 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'config_loader/version'
+require 'conf_loader/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'config_loader'
-  spec.version       = ConfigLoader::VERSION
+  spec.name          = 'conf_loader'
+  spec.version       = ConfLoader::VERSION
   spec.authors       = ['Indrek Juhkam']
   spec.email         = ['indrek@salemove.com']
   spec.description   = %q{}
-  spec.summary       = %q{Helps to load config files in SaleMove ecosystem}
+  spec.summary       = %q{Helps to load conf files in SaleMove ecosystem}
   spec.homepage      = ''
   spec.license       = 'MIT'
 
