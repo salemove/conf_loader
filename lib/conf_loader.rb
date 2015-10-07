@@ -2,13 +2,13 @@ require 'yaml'
 require 'symbolizer'
 require 'erb'
 
-# Helps to load config files in salemove ecosystem
+# Helps to load conf files in salemove ecosystem
 #
-class ConfigLoader
-  # Load given config file
+class ConfLoader
+  # Load given conf file
   #
   # @path [String] path
-  #   full path to config
+  #   full path to conf
   # @path [String] env
   #   environment to load
   #

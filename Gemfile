@@ -10,5 +10,5 @@ group :metrics do
   gem 'reek'
 end
 
-# Specify your gem's dependencies in config_loader.gemspec
+# Specify your gem's dependencies in conf_loader.gemspec
 gemspec

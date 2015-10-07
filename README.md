@@ -1,13 +1,13 @@
-# ConfigLoader
+# ConfLoader
 
-[![Build Status](https://travis-ci.org/salemove/config_loader.svg?branch=master)](https://travis-ci.org/salemove/config_loader)
-[![Code Climate](https://codeclimate.com/github/salemove/config_loader.png)](https://codeclimate.com/github/salemove/config_loader)
+[![Build Status](https://travis-ci.org/salemove/conf_loader.svg?branch=master)](https://travis-ci.org/salemove/conf_loader)
+[![Code Climate](https://codeclimate.com/github/salemove/conf_loader.png)](https://codeclimate.com/github/salemove/conf_loader)
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'config_loader', github: 'salemove/config_loader'
+    gem 'conf_loader'
 
 And then execute:
 
