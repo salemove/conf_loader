@@ -3,6 +3,14 @@ require 'spec_helper'
 describe ConfLoader do
   let(:path) { File.dirname(__FILE__) + '/../fixtures/simple.yml' }
 
+  context 'when environment not defined' do
+    let(:conf) { described_class.load(path, 'office') }
+
+    it 'raises a key not found error' do
+      expect { conf }.to raise_error(described_class::EnvironmentNotFoundError, /Configuration for \`office\` not found at path .*/)
+    end
+  end
+
   context 'conf loaded with production deployment setting' do
 
     let(:conf) { described_class.load(path, 'production') }
