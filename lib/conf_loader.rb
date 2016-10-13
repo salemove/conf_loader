@@ -24,10 +24,19 @@ class ConfLoader
 
     if environments.has_key?(env)
       hash = environments[env]
-      Symbolizer.symbolize(hash)
+      guarantee_key_presence(Symbolizer.symbolize(hash))
     else
       raise EnvironmentNotFoundError,
         "Configuration for `#{env}` not found at path #{path}"
     end
   end
+
+  def self.guarantee_key_presence(hash)
+    hash.default_proc = proc do |h, k|
+      raise KeyError, "#{k} not defined"
+    end
+    hash
+  end
+
+  private_class_method :guarantee_key_presence
 end

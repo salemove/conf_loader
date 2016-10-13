@@ -11,6 +11,14 @@ describe ConfLoader do
     end
   end
 
+  context 'when accessed key not defined' do
+    let(:conf) { described_class.load(path, 'office') }
+
+    it 'raises KeyError' do
+      expect{conf[:some_undefined_key]}.to raise_error(KeyError)
+    end
+  end
+
   context 'conf loaded with production deployment setting' do
 
     let(:conf) { described_class.load(path, 'production') }
@@ -39,10 +47,6 @@ describe ConfLoader do
 
     it 'exposes ENV defined value' do
       expect(conf[:foo]).to eq('foo-value')
-    end
-
-    it 'exposes undefined ENV values as nil' do
-      expect(conf[:undefined_val]).to be_nil
     end
 
     it 'exposes default value when ENV value not supplied' do
