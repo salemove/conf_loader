@@ -58,4 +58,14 @@ describe ConfLoader do
     end
   end
 
+  context 'with empty config value' do
+    let(:conf) { described_class.load(path, 'invalid') }
+
+    it 'raises ValueNotDefinedError' do
+      expect{conf}.to raise_error(
+        described_class::ValueNotDefinedError,
+        'empty_value value not defined, nested_empty_value value not defined'
+      )
+    end
+  end
 end
