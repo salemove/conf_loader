@@ -6,6 +6,7 @@ require 'erb'
 #
 class ConfLoader
   EnvironmentNotFoundError = Class.new(KeyError)
+  ValueNotDefinedError = Class.new(KeyError)
 
   # Load given conf file
   #
@@ -24,12 +25,18 @@ class ConfLoader
 
     if environments.has_key?(env)
       hash = environments[env]
-      guarantee_key_presence(Symbolizer.symbolize(hash))
+
+      check_value_presence(
+        guarantee_key_presence(Symbolizer.symbolize(hash))
+      )
     else
       raise EnvironmentNotFoundError,
         "Configuration for `#{env}` not found at path #{path}"
     end
   end
+
+
+  private_class_method
 
   def self.guarantee_key_presence(hash)
     hash.default_proc = proc do |h, k|
@@ -38,5 +45,26 @@ class ConfLoader
     hash
   end
 
-  private_class_method :guarantee_key_presence
+  def self.check_value_presence(hash)
+    errors = check_values_not_empty(hash)
+    if errors.empty?
+      hash
+    else
+      raise ValueNotDefinedError, errors.join(', ')
+    end
+  end
+
+  def self.check_values_not_empty(hash)
+    hash.inject([]) do |acc, (key, value)|
+      errors =
+        if value.is_a?(Hash)
+          check_values_not_empty(value)
+        elsif value.to_s.empty?
+          ["#{key} value not defined"]
+        else
+          []
+        end
+      acc + errors
+    end
+  end
 end

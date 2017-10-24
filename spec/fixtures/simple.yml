@@ -10,3 +10,8 @@ flexible:
   foo: <%= ENV['FOO'] %>
   var_with_default_not_in_env: <%= ENV['SOME_VAR_NOT_IN_ENV'] || 'default_value' %>
   var_with_default_in_env: <%= ENV['FOO'] || 'default_value' %>
+
+invalid:
+  empty_value: ''
+  nested_field:
+    nested_empty_value: ''
