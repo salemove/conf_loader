@@ -46,11 +46,11 @@ class ConfLoader
   end
 
   def self.check_value_presence(hash)
-    errors = check_values_not_empty(hash)
-    if errors.empty?
+    error_keys = check_values_not_empty(hash)
+    if error_keys.empty?
       hash
     else
-      raise ValueNotDefinedError, errors.join(', ')
+      raise ValueNotDefinedError, "Undefined keys: #{error_keys.join(', ')}"
     end
   end
 
@@ -58,9 +58,9 @@ class ConfLoader
     hash.inject([]) do |acc, (key, value)|
       errors =
         if value.is_a?(Hash)
-          check_values_not_empty(value)
+          check_values_not_empty(value).map { |child_key| "#{key}.#{child_key}" }
         elsif value.to_s.empty?
-          ["#{key} value not defined"]
+          [key]
         else
           []
         end

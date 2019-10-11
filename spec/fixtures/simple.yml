@@ -15,3 +15,5 @@ invalid:
   empty_value: ''
   nested_field:
     nested_empty_value: ''
+    nested_empty_value2: ''
+    nested_non_empty_value: 'non-empty'

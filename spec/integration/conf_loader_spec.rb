@@ -64,7 +64,7 @@ describe ConfLoader do
     it 'raises ValueNotDefinedError' do
       expect{conf}.to raise_error(
         described_class::ValueNotDefinedError,
-        'empty_value value not defined, nested_empty_value value not defined'
+        'Undefined keys: empty_value, nested_field.nested_empty_value, nested_field.nested_empty_value2'
       )
     end
   end
