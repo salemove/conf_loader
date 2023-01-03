@@ -21,7 +21,9 @@ class ConfLoader
   # @api public
   def self.load(path, env)
     template = ERB.new File.new(path).read
-    environments = YAML.load template.result(binding)
+    source = template.result(binding)
+
+    environments = load_environments(source)
 
     if environments.has_key?(env)
       hash = environments[env]
@@ -37,6 +39,16 @@ class ConfLoader
 
 
   private_class_method
+
+  if Gem::Version.new(RUBY_VERSION).release >= Gem::Version.new('3.1.0')
+    def self.load_environments(source)
+      YAML.load(source, aliases: true)
+    end
+  else
+    def self.load_environments(source)
+      YAML.load(source)
+    end
+  end
 
   def self.guarantee_key_presence(hash)
     hash.default_proc = proc do |h, k|
