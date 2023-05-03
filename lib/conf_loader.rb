@@ -27,6 +27,7 @@ class ConfLoader
 
     if environments.has_key?(env)
       hash = environments[env]
+      hash = hash.reject {|k, v| k == "<<" }
 
       check_value_presence(
         guarantee_key_presence(Symbolizer.symbolize(hash))
