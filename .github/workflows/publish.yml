@@ -7,9 +7,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
-      - uses: actions/checkout@v2
+      # v7.0.1. The release needs these credentials: the action's entrypoint
+      # runs `git fetch origin refs/tags/vX`, then `rake release` pushes the
+      # tag. Nothing here uploads an artifact, so .git cannot leak that way.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # zizmor: ignore[artipacked]
         with:
           fetch-depth: 2
 
