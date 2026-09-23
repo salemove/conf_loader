@@ -1,6 +1,5 @@
 # ConfLoader
 
-[![Build Status](https://travis-ci.org/salemove/conf_loader.svg?branch=master)](https://travis-ci.org/salemove/conf_loader)
 [![Code Climate](https://codeclimate.com/github/salemove/conf_loader.png)](https://codeclimate.com/github/salemove/conf_loader)
 
 ## Installation
