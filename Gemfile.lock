@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    conf_loader (2.2.0)
+    conf_loader (3.0.0)
       symbolizer (~> 0.0.1)
 
 GEM
