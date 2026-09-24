@@ -40,14 +40,8 @@ class ConfLoader
 
   private_class_method
 
-  if Gem::Version.new(RUBY_VERSION).release >= Gem::Version.new('3.1.0')
-    def self.load_environments(source)
-      YAML.load(source, aliases: true)
-    end
-  else
-    def self.load_environments(source)
-      YAML.load(source)
-    end
+  def self.load_environments(source)
+    YAML.load(source, aliases: true)
   end
 
   def self.guarantee_key_presence(hash)
